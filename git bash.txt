@@ -1,0 +1,87 @@
+$ right click the folder that is to be set as the local repo and select "git bash here", set it to be the directory
+
+ls                    # check what is in the folder file
+
+git init                   # set the folder file to be the git repo
+git status               # check status of the git repo
+
+git add try.txt         # add the file to be tracked in git
+git commit -m "add a trial file"        # commit the changes to git with a message
+
+# git config --global user.name "daodaowei"           AND
+# git config --global user.email "weiyiwdeng@gmail.com"        WERE USED
+
+git log                    # see history of all the changes commited
+# git add --all   &   git add *   can add new files and modifed files simutaneously
+
+# use git log to find out the git commit code of one previous status, right click on the top of the bash window to select and copy the commit code
+# git log --graph --decorate --all --pretty=oneline 
+# the above command will show the git log history in one line with head and master specified
+
+git checkout 13c9cc2572329d3fedd97a68bc67049792e4aee2           
+# will see the "head" has changed if type in "git log" command now and the repo folder becomes just as in the previous status
+
+
+git checkout master           # goes back to the newest status
+
+clear                                  # clear the bash/command window
+q                                       # quit the loop
+
+#-------------------------------------------------------------------------
+# push local repo to github
+
+# first create a new repo in github, get the address
+git remote add origin https://github.com/daodaowei/try2.git                  # link local repo to the one on github
+
+git push -u origin master                # push local contents to github
+
+git status
+git add *
+git commit -m "sthsth"
+git push origin master                     # if changes local files, need to push changes agian to githut
+
+# to work with other people, add collaboratives
+git pull                                             # pull the changes from github to local repo
+
+# create an empty folder and open bash here
+git clone https://github.com/daodaowei/Hello_world.git                       # copy a repo from github to local
+
+#---------------------------------------------------------------------------
+# build an R package with these tools
+# see video "Create an R Package in RStudio"
+library("roxygen2")
+library("devtools")
+load_all()
+
+#----------------------------------------------------------------------------
+# create a new branch with bash, no need to create manually using github website
+git checkout -b pkg2                          # create a new branch named pkg2 in local repo and switch to this branch
+
+git branch                                          # view all the branches and which branch is currently on
+
+git add Rpkg/
+git commit -m "change file"
+git push origin pkg2                           # after changing file, stage, commit, and push the branch on github
+
+# comparing and merging branches can be done manually on github
+# see https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
+
+git checkout master                           # switch back to origin branch
+git merge branchname                      # merge the branch to origin branch and push the change again
+git push origin master
+# now the two branches are even, the created branch can be deleted 
+
+#----------------------------------------------------------------------------
+# only track certain files in a folder
+# Need to create the file before init !!!
+git status
+touch .gitignore                                   # create a text file for ignoring files in the repo
+
+#open the txt file and input
+*                                                         # blacklist everything
+!*.R
+!*.sql                                                   # except files in R and sql formats will be tracked
+
+git status                                             
+git add --all
+

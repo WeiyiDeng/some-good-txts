@@ -1,0 +1,6 @@
+¦Á.¦¡.alpha       ¦Â.¦¢.beta        ¦Ã.¦£.gamma       ¦Ä.¦¤.delta 
+¦Å.¦¥.epsilon     ¦Æ.¦¦.zeta         ¦Ç.¦§.eta             ¦È.¦¨.theta 
+¦É.¦©.iota            ¦Ê.¦ª.kappa      ¦Ë.¡Ä.lambda      ¦Ì.¦¬.mu 
+¦Í.¦­.nu          ¦Î.¦®.xi               ¦Ï.¦¯.omicron     ¦Ð.¡Ç.pi   ¦Ð
+¦Ñ.¦±.rho         ¦Ò.¡Æ.sigma      ¦Ó.¦³.tau             ¦Ô.¦´.upsilon 
+¦Õ.¦µ.phi         ¦Ö.¦¶.chi           ¦×.¦·.psi            ¦Ø.¦¸.omega               ¡Ò        

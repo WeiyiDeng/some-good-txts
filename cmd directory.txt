@@ -1,0 +1,63 @@
+C:\Users\Deng XM>d:
+D:\>C:
+C:Users\Deng XM> cd d:\Program Files\SQLite
+C:Users\Deng XM>d:
+
+d:\Program Files\SQLite>sqlite3 data-w.db
+
+% to break: Ctrl + C
+
+sqlite> create table something(id integer,name varchar(20),age integer);
+
+sqlite> insert into something values(101,'Amy Wong',25);
+
+sqlite> select * from something; 
+select * from Movie;
+
+sqlite>create table db_1(ID_USER integer, UTS integer, ID_TRACK integer, TRACK integer, DURATION integer, age integer, ID_ARTIST varchar(50), TopBand integer, LovedBand integer);
+sqlite>.separator "\t"
+sqlite>.import dataset.1.tsv db_1
+
+create table dtalbum(NAME varchar(50), ALBUM varchar(50), WEEK_ID integer, COUNT_mod integer, PREV1 integer, PREV2 integer, PREV3 integer, PREV4 integer, PREV8 integer, PREV12 integer, PREV16 integer, PREV26 integer, PREV39 integer, PREV52 integer);
+
+
+
+% for the new(second) dataset5:
+% create table newtable5(TRACK_ID varchar(50), Tag1 varchar(50), Num1 varchar(50), Tag2 varchar(50), Num2 varchar(50), Tag3 varchar(50), Num3 varchar(50), Tag4 varchar(50), Num4 varchar(50), Tag5 varchar(50), Num5 varchar(50), Tag6 varchar(50), Num6 varchar(50), Tag7 varchar(50), Num7 varchar(50), Tag8 varchar(50), Num8 varchar(50), Tag9 varchar(50), Num9 varchar(50), Tag10 varchar(50), Num10 varchar(50), Tag11 varchar(50), Num11 varchar(50), Tag12 varchar(50), Num12 varchar(50), Tag13 varchar(50), Num13 varchar(50), Tag14 varchar(50), Num14 varchar(50), Tag15 varchar(50), Num15 varchar(50), Tag16 varchar(50), Num16 varchar(50), Tag17 varchar(50), Num17 varchar(50), Tag18 varchar(50), Num18 varchar(50), Tag19 varchar(50), Num19 varchar(50), Tag20 varchar(50), Num20 varchar(50), Tag21 varchar(50), Num21 varchar(50));
+
+&
+sqlite>.mode tabs
+sqlite>.import dataset.1.tsv table1
+% both ways trim rows due to unescaped "
+% use Emeditor or 101 or any other LTF editor to change all " into '. Import modified data
+
+%IN SQLITE EXPERT sepcify data types in tb2
+insert into tb2 
+select *
+from table1;
+
+.tables
+
+.read rating.sql
+-----------------------------------
+%IN MATLAB
+buildit   %first start
+mksqlite('open','db-w.db')
+mov = mksqlite('SELECT * FROM Movie');
+mksqlite('close')
+
+c = struct2cell(mov);
+mov2 = c';
+
+-----------------------------------
+IN SQLITE EXPERT
+SELECT COUNT(*) FROM tb2;
+
+
+------------------------------------
+% save output to csv file
+sqlite> .headers on
+sqlite> .mode csv
+sqlite> .output filename.csv
+sqlite> select * from tablename;
+sqlite> .output stdout
