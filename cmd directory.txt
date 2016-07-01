@@ -6,6 +6,7 @@ C:Users\Deng XM>d:
 d:\Program Files\SQLite>sqlite3 data-w.db
 
 % to break: Ctrl + C
+% to exectue queries put ; at the end
 
 sqlite> create table something(id integer,name varchar(20),age integer);
 
