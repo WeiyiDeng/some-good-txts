@@ -10,6 +10,8 @@ git commit -m "add a trial file"        # commit the changes to git with a messa
 
 # git config --global user.name "daodaowei"           AND
 # git config --global user.email "weiyiwdeng@gmail.com"        WERE USED
+## w: the user name is now "weiyideng" with the email account "weiyiwdeng@gmail.com" 
+## w commented on 2016 Jul
 
 git log                    # see history of all the changes commited
 # git add --all   &   git add *   can add new files and modifed files simutaneously
