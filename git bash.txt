@@ -9,7 +9,7 @@ git add try.txt         # add the file to be tracked in git
 git commit -m "add a trial file"        # commit the changes to git with a message
 
 # git config --global user.name "daodaowei"           AND
-# git config --global user.email "weiyiwdeng@gmail.com"        WERE USED
+# git config --global user.email "weiyiwdeng@gmail.com"         WERE USED
 
 git log                    # see history of all the changes commited
 # git add --all   &   git add *   can add new files and modifed files simutaneously

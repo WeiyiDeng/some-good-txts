@@ -1,0 +1,16 @@
+# w: see https://github.com/coursera-dl/coursera-dl
+
+# w: from cmd navigate to d:\Python34>
+
+# w: Or add Python to path environment variable and call python from cmd by just typing python in the cmd shell
+# w: change path variable: control panel -> system -> advanced system settings -> environment variables -> edit 'path' under system variables
+# w: beware that to access needed files still need to nevigate to the correct directory
+
+d:\Python34> python -m pip install -U pip                  # update pip
+d:\Python34> python -m pip install coursera-dl             # install coursera-dl pkg
+
+# w: cannot set path for some reason, error message: "Did not find valid netrc file"
+d:\Python34\Scripts> coursera-dl -u weiyiwdeng@gmail.com -p aptx4869 interactive-python-1      # download course Interactive Python Part 1
+d:\Python34\Scripts> coursera-dl -u weiyiwdeng@gmail.com -p aptx4869 interactive-python-2
+
+# w: next time just need to nevigate to d:\Python34\Scripts and call coursera-dl

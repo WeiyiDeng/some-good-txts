@@ -1,0 +1,36 @@
+# Access mysql from the command line (cmd)
+cd C:/Program Files/MySQL/MySQL Server 5.7/bin
+
+# enter password after typing in this line
+mysql -u root -p
+
+# can use mysql from cmd now
+mysql> create database testdb;
+
+# select the table
+mysql> USE testdb;
+
+# type "exit" to exit mysql
+
+# see location of mysql databases
+SHOW VARIABLES WHERE Variable_name LIKE '%dir';
+
+# default location is C:\ProgramData\MySQL\MySQL Server 5.7\Data\
+
+#-------------------------------------------
+
+# search mysql database external hard drive
+
+http://stackoverflow.com/questions/22447651/copying-mysql-databases-from-one-computer-to-another
+
+http://dba.stackexchange.com/questions/14320/how-can-i-move-a-mysql-database-to-another-drive
+
+http://stackoverflow.com/questions/2428416/how-to-create-mysql-database-from-shell-command
+
+http://stackoverflow.com/questions/1795176/how-to-change-mysql-data-directory
+
+http://dba.stackexchange.com/questions/24403/change-existing-datadir-path/24437#24437?newreg=8ac58d6446484ed98c0c7fb695be3ef5
+
+# sql server db on external drive
+
+http://serverfault.com/questions/48958/sql-server-database-on-an-external-hard-disk-drive

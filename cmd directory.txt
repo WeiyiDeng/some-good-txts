@@ -1,11 +1,12 @@
 C:\Users\Deng XM>d:
 D:\>C:
-C:Users\Deng XM> cd d:\Program Files\SQLite
+C:Users\Deng XM> cd d:\Users\sqlite3
 C:Users\Deng XM>d:
 
 d:\Program Files\SQLite>sqlite3 data-w.db
 
 % to break: Ctrl + C
+% to exectue queries put ; at the end
 
 sqlite> create table something(id integer,name varchar(20),age integer);
 
@@ -61,3 +62,8 @@ sqlite> .mode csv
 sqlite> .output filename.csv
 sqlite> select * from tablename;
 sqlite> .output stdout
+
+
+% w: now can also call sqlite directly from cmd
+C:\Users\Weiyi Deng> sqlite3 db_try.db
+% w: but db files are only accessible in the directory C:\Users\Weiyi Deng

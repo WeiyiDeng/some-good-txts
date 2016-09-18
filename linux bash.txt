@@ -1,0 +1,174 @@
+# user name/password: uwhpsc
+
+# w: change uwhpsc@ubuntu:~$  to $
+export PS1='$ '
+
+$ lsb_release -a             # see the version of Ubuntu
+
+$ ls
+$ mkdir tests                # make a new directory
+$ cd tests          
+$ pwd
+$ git clone https://bitbucket.org/rjleveque/uwhpsc.git
+
+$ ls
+$ cd uwhpsc
+$ ls
+$ git checkout coursera       # change to the coursera branch
+$ ls
+
+$ echo $PWD           
+# prints the current working directory
+# $ sign in linux means retreving value of the variable
+$ export UWHPSC=$PWD  
+# set a new variable UWHPSC equals to the value of PWD
+$ cd $UWHPSC          
+# direct to the specific directory in one time
+$ pwd
+
+$ cd lectures/lecture1        # go to lecture1
+$ ls
+$ make plots                  # run Makefile 
+
+$ firefox *.png               # open png files with browser
+
+* write down as system of equations?
+
+$ cd ..                      # move to the parent directory
+
+
+$ cd $UWHPSC/notes           # view the motes
+$ make html                  # make the .rst files into html files
+$ firefox _build/html/index.html         # open the html files in firefox
+
+# rm; cp
+
+# call python just by typing python in the shell
+$ python
+>>> 2**3
+# returns 8
+>>> 2**30
+>>> 2**100
+>>> from numpy import pi                 # import pi from numpy module
+
+$ ls-a                         # show hidden files                  
+$ cd -                         # switch to the last directory
+$ which gitk                   # use which to check whether program is installed
+$ sudo apt-get install gitk    # install gitk
+
+$ clear                        # clear shell window
+$ cd tests/uwhpsc              # nevigate to the directory
+$ ls -a                        # see the hidden .git file
+$ gitk &                       # use & to let the prompt run in background
+
+# use git merge /fetch to work with others on the same program
+
+# create a new repository and init git
+$ cd
+$ ls
+$ mkdir wdocs                   # create new directory wdocs
+$ cd wdocs
+$ git init                      # wdocs is now a git repository 
+$ ls -a                         # see the hidden git sub-directory
+
+$ rm -r .git                    # remove the git sub-directory
+# use rm .filename to remove file; use rmdir .dirname to remove an empty directory 
+
+
+# cannot install notepadqq as Ubuntu 12.04 is not supported
+"""
+sudo add-apt-repository ppa:notepadqq-team/notepadqq
+sudo apt-get update
+sudo apt-get install notepadqq
+"""
+
+# mate cannot be installed either, error with the repo
+"""
+sudo add-apt-repository "deb http://packages.mate-desktop.org/repo/ubuntu precise main"
+sudo apt-get update
+sudo apt-get --yes --quiet --allow-unauthenticated install mate-archive-keyring
+sudo apt-get update
+sudo apt-get install mate-core
+sudo add-apt-repository --remove "deb http://repo.mate-desktop.org/repo/ubuntu precise main"
+"""
+
+# finally installed Geany instead
+$ sudo apt-get install geany scite
+# can use SciTE as well, comes with the VM
+
+###
+$ python
+>>> import numpy
+>>> dir(numpy)                    # checkout functions in numpy
+>>> numpy.sqrt(2)
+>>> or
+>>> from numpy import sqrt        # the sqrt function is now in name space
+>>> sqrt(2)
+
+# to solve s = sqrt(x)
+s = 1                   # initial value
+x = 5
+k = 1000                # max number of iterations
+for i in range(k):
+	s = 0.5*(s+x/s)
+print(s)
+
+>>> quit()                         # to quit python
+
+$ ipython                          # use ipython shell instead of python
+
+$ from numpy import *              # import all functions of numpy to name space
+
+# make a new py file and open with Geany
+$ history                          # print all the commands typed in the terminal
+$ geany wtry.py
+
+# use SciTE to open wtry.py
+$ SciTE wtry.py &
+
+# run the py file in ipython
+>>> run wtry.py geany                   # need to navigate to the right directory
+
+# ctrl + c to kill process
+# ctrl + z to pause
+# jobs to show all background jobs on the terminal
+# bg to make the last paused job continue in the background
+# fg to return the last pause job to the foreground
+# fg %2 to put the 2nd job in foreground
+# kill %3 to kill the 3rd job
+
+$ git status | more                     # show all in a page
+$ git add wtry.py
+$ git status
+$ git commit -m "try writing sqrt function"
+
+$ git add -u                            # update the files that are tracked already
+ 
+$ ipython
+
+# can run the script directly from the linux prompt
+$ ipython wtry.py
+
+# in ipython run sqrtfun.py
+>>> run sqrtfun.py
+>>> wsqrt                                # check out the type of the object (a function here)
+
+# more standard approach, view the script as a module
+>>> import sqrtfun                       # sqrtfun is a module from sqrtfun.py 
+>>> sqrtfun.wsqrt                        # sqrtfun has a function called wsqrt
+>>> tol                                  # values defined on top of the script can also be accessed as attributes of the module
+>>> sqrtfun.wsqrt(0.01,4)
+# can also do "from sqrtfun import wsqrt"
+
+# add documentation on top of the script
+>>> reload(sqrtfun)                      # use reload as the module has been imported before
+>>> sqrtfun.wsqrt?                       # see the docstring ? W: not showing, why??
+>>> sqrtfun.wsqrt??                      # print the whole script
+>>> q
+# use q to exit ipython session !!
+
+# git log
+# git checkout fe807ee37025              # checkout previous version
+# git checkout fe807ee37025 --wtry.py    # or checkout previous version of a specific file
+# git checkout HEAD                      # use this to get to the earliest version
+# git checkout master                    # go back to the most recent version
