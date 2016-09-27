@@ -1,7 +1,17 @@
 # user name/password: uwhpsc
 
+# for the VM use right ctrl + c to bring back menu bar
+# menu => view => virtual screen 1 + scale factor to set size of screen and resolution !
+# or use auto-resize guest display under menu => view
+
 # w: change uwhpsc@ubuntu:~$  to $
 export PS1='$ '
+
+# ctrl + shift + c to copy from the terminal
+# ctrl + shift + v to paste
+$ tput rmcup                 # if cannot scoll up in terminal, run this command
+# or run the following commmand "tput reset"
+# or open a random file with "less"
 
 $ lsb_release -a             # see the version of Ubuntu
 
@@ -118,6 +128,9 @@ print(s)
 $ ipython                          # use ipython shell instead of python
 
 $ from numpy import *              # import all functions of numpy to name space
+# or
+>>> import numpy as np             # short name for numpy
+>>> np.sqrt(2)
 
 # make a new py file and open with Geany
 $ history                          # print all the commands typed in the terminal
@@ -159,10 +172,10 @@ $ ipython wtry.py
 >>> tol                                  # values defined on top of the script can also be accessed as attributes of the module
 >>> sqrtfun.wsqrt(0.01,4)
 # can also do "from sqrtfun import wsqrt"
-
+whic
 # add documentation on top of the script
 >>> reload(sqrtfun)                      # use reload as the module has been imported before
->>> sqrtfun.wsqrt?                       # see the docstring ? W: not showing, why??
+>>> sqrtfun.wsqrt?                       # see the docstring; only shown under pylab environment
 >>> sqrtfun.wsqrt??                      # print the whole script
 >>> q
 # use q to exit ipython session !!
@@ -172,3 +185,258 @@ $ ipython wtry.py
 # git checkout fe807ee37025 --wtry.py    # or checkout previous version of a specific file
 # git checkout HEAD                      # use this to get to the earliest version
 # git checkout master                    # go back to the most recent version
+# git branch                             # to see all the branches
+
+### install new software on VM
+$ sudo apt-get install xxdiff            # install as superuser
+$ sudo apt-get install python-sympy      # needs too much space; did not install yet
+$ sudo apt-get install python-setuptools
+$ sudo easy_install nose
+
+# get most recent version gucd ..of ipython
+$ cd
+$ git clone https://github.com/ipython/ipython.git
+$ cd ipython
+$ sudo python setup.py install
+
+# install pip and install ipython from pip
+$ sudo pip install ipython
+$ sudo pip install ipython --upgrade
+# may need to install some pkgs manually
+$ pip install pathlib2
+$ pip install backports.shutil_get_terminal_size
+
+$ ipython notebook --pylab inline         # ipython notebook is deprecated and replaced by jupyter notebook
+# try installing jupyter notebook instead
+$ sudo pip install --upgrade pip           # upgrade pip
+$ which pip                                # see where pip is installed
+$ sudo /usr/local/bin/pip install jupyter  # install jupyter with pip
+$ which jupyter                            
+$ sudo /usr/local/bin/pip install --upgrade jupyter    # upgrade jupyter
+$ jupyter notebook &                                   # open jupyter notebook   
+
+
+###
+$ export JUNK=abc    # set environment variable
+$ echo $JUNK         # refer to environment variable with $ sign, print out content of the env variable
+# or
+$ printenv JUNK      # print environment variable
+$ printenv           # print all environment variables
+$ echo $HOME         # print home directory
+
+# copying file to different directories
+$ cd
+$ cd wdocs           # change dir to /home/uwhpsc/wdocs
+$ ls
+$ cd            # copy sqrtfun.py and rename as mysqrtw.py
+$ mkdir lecture3
+$ mkdir lecture4                      # make new dir
+$ cp mysqrtw.py ./lecture3            # copy mysqrtw.py into new dir lecture3
+                                      # . means here
+$ cp ./lecture3/mysqrtw.py ./lecture4  # copy file from dir lecture3 to dir lecture4 
+
+# git status .
+# git ls-files .                       # see which files are under version control
+# git reset HEAD ../dir/filename       # use reset to unstage tracked files   
+
+$ cd lecture4
+$ scite mysqrtw.py &
+$ ipython --pylab
+>>> cd
+>>> cd wdocs/lecture4
+>>> ls
+>>> import mysqrtw
+>>> dir(mysqrtw)
+>>> mysqrtw?
+>>> mysqrtw??
+>>> q
+>>> mysqrtw.wsqrt(2)
+
+# adds debug flag and return in mysqrtw.py
+>>> reload(mysqrtw)
+>>> mysqrtw.wsqrt(2)
+>>> mysqrtw.wsqrt(2,True)                # will print debug contents
+# or use
+>>> mysqrtw.wsqrt(2,debug=True)
+
+# set up .gitignore file to ignore .pyc files
+$ git status
+$ cd ..                                  # go to wdocs dir
+$ geany .gitignore                       # open a new file named .gitignore
+# add *.pyc in the editor and save
+$ git status
+$ git add -u                             # stage changes in mysqrtw.py and commit
+$ git commit -m "add debug flags and return"
+$ git status
+$ git add --all                          # add git ingore file and commit
+$ git commit -m "add .gitignore file"
+$ git status
+
+>>> import mysqrtw
+>>> mysqrtw.wsqrt(0)
+>>> mysqrtw.wsqrt(-1)
+>>> mysqrtw.wsqrt(-2)
+>>> mysqrtw.wsqrt(100)
+>>> mysqrtw.wsqrt(100.)            
+>>> mysqrtw.wsqrt("100")
+
+# w: with . after the number means floating number, otherwise means int
+>>> type(2)                             # int
+>>> type(2.)                            # float
+>>> type("2")                           # str
+
+### array object
+>>> array?
+>>> x = array([1, 2, 4.])
+>>> x                                  # gives array([ 1.,  2.,  4.])
+# array converts all its elements to the same type
+>>> sqrt(x)                            # numpy functions can deal with array objects
+
+### write unit tests for the function
+>>> reload(mysqrtw)
+>>> mysqrtw.                           # press tab to show elements of the module
+>>> mysqrtw.test                       # only shows that its a function
+>>> mysqrtw.test()                     # call the test func with no input arguments
+
+### nosetests
+$ which nosetests
+$ nosetests -v mysqrtw.py             
+# nose test will run all the tests in the module and see if the asssert statement fails   
+
+### see the directories where python searches for modules
+>>> import sys
+>>> sys.path 
+# returns list of directories  E: [¡¯¡¯, ¡¯/usr/bin¡¯, ....]
+>>> sys.path.append(¡¯newdirectory¡¯)
+
+### ploting under pylab environment
+>>> sqrt(2)
+>>> x = linspace(0,5*pi,100)            # similar as in matlab         
+# creates a numpy array of values between 0 and 5*pi that has 100 points
+>>> x
+>>> y = cos(x)
+>>> plot(x,y)
+>>> x = linspace(0,5*pi,1000)
+>>> plot(x,cos(x))
+>>> clf()                               # clear figure, otherwise will plot on the same figure
+>>> plot(x,y)
+>>> plot(x,-y, 'r--')
+>>> plot?                               # press enter to scroll down
+>>> figure()                            # opens another figure
+>>> subplot(2,2,1)                      # 1st subplot of a 2x2 plots
+>>> plot(x,-y, 'b:')
+
+### list vs numpy arrays
+>>> L = [1,2,3]
+>>> L*2                                  # returns [1, 2, 3, 1, 2, 3]
+>>> L+L                                  # returns [1, 2, 3, 1, 2, 3]
+>>> L2 = [4,5]
+>>> L+L2                                 # returns [1, 2, 3, 4, 5]
+>>> a = array(L)
+>>> a
+>>> a*2                                  # returns array([2, 4, 6])
+>>> a+3                                  # returns array([4, 5, 6])
+>>> sqrt(a)
+
+# w: check this if jupyter notebook has kernel issues again
+# https://github.com/jupyter/notebook/issues/636
+
+# sudo jupyter notebook &
+# new => python2
+>>> %pylab inline                         # shift + enter to run the line
+
+# w: was previous on the /usr/local/bin dir
+# jupyter notebook automatically creates ipynb file in working directory
+$ cp /usr/local/bin/lecture5A.ipynb /home/uwhpsc/wdocs/lecture5
+$ cd ~/wdocs/lecture5                     # set preferred working dir
+# ~ for home dir; . for working dir
+# see http://www.computerhope.com/unix/ucd.htm for directory symbols
+
+$ scite lecture5A.ipynb                   # view in scite
+
+$ mkdir lecture6
+$ cd lecture4                          
+$ cp mysqrtw.py /home/uwhpsc/wdocs/lecture6        # copy file mysqrtw.py into new dir
+$ cd ../lecture6
+
+$ scite mysqrtw.py
+# use ctrl + scroll up or down to change fonts in scite !!
+
+# __name__ private variables; __main__ now run as a script
+$ python mysqrtw.py                                # now run test in the module
+
+# can download as py or html files in jupyter notebook 
+# or print preview as pdf? w: print preview not work?
+$ cd
+$ cd Downloads
+$ scite lec6.py                           # lec6.py is downloaded py version of lec6.ipynb
+$ firefox ~/Downloads/lec6.html
+
+
+### array and matrix manipulation in ipython
+### see W2-L6.1 slide for clearer comments/explanations
+import numpy as np
+np.sqrt(100)
+x=np.array([2,3])
+x
+x*2
+x+3
+y = [1,2]
+y+y
+y+3                          # gives error
+np.sqrt(x) * np.cos(x) * x**3
+np.array([1,2,3.])
+A = np.array([[1.,2], [3,4], [5,6]])
+A
+A.shape
+A.T
+x = np.array([1.,1.])
+x
+x.T
+A*2
+np.dot(A,x)
+np.dot(A,A.T)
+np.dot(A.T,A)
+A = np.matrix("1., 2.;3., 4.;5., 6.")
+A
+B = np.matrix([[1.,2], [3,4], [5,6]])
+B
+x = np.matrix("4.;5.")
+x
+x.T
+A*x
+x[0,0]                 # access x like in a 2X1 matrix
+x[1,0]
+np.rank(x)
+x = np.matrix("4.;5.")
+print x[0,0], x[1,0]
+A = np.ones((2,3,4))
+A
+np.rank(A)
+A[0,0,1]
+z = np.array(7.)
+z
+np.rank(z)
+A = np.array([[1.,2],[3,4]])
+A
+b = np.dot(A,np.array([8.,9.]))
+b
+from numpy.linalg import solve
+solve(A,b)
+from numpy.linalg import eig
+eig(A)
+eval, evec = eig(A)
+eval
+evec
+from scipy.integrate import quad
+def f(x):
+    return x**2
+f(2)
+quad(f,0.,2.)
+val,error_est = quad(f,0.,2.)
+val
+error_est
+f = lambda x:x**2
+f(4)
+quad(lambda x: x**2,0.,2.)
+history
