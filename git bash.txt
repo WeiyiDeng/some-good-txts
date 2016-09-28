@@ -9,13 +9,7 @@ git add try.txt         # add the file to be tracked in git
 git commit -m "add a trial file"        # commit the changes to git with a message
 
 # git config --global user.name "daodaowei"           AND
-<<<<<<< HEAD
 # git config --global user.email "weiyiwdeng@gmail.com"         WERE USED
-=======
-# git config --global user.email "weiyiwdeng@gmail.com"        WERE USED
-## w: the user name is now "weiyideng" with the email account "weiyiwdeng@gmail.com" 
-## w commented on 2016 Jul
->>>>>>> 8025046411fb34934043d3f1674854591f451161
 
 git log                    # see history of all the changes commited
 # git add --all   &   git add *   can add new files and modifed files simutaneously
@@ -90,4 +84,57 @@ touch .gitignore                                   # create a text file for igno
 
 git status                                             
 git add --all
+
+
+
+###----- version control in multiple comupters (git on windows) ----
+
+## clone a remote directory from e.g. github to local computer
+# get the HTTPS or SSH URL from the website
+# git bash the local folder you want the cloned repository to be in
+$ git clone https://github.com/WeiyiDeng/hpsc_LinuxVM.git
+
+## pull the latest version of the repository from remote
+$ git bash the cloned repository (folder)
+$ git pull origin master
+
+# to undo last files added use git reset
+
+## push changes in local repo to remote
+$ git push origin master
+
+## switch to an earlier version of commit
+# see all the commits made before
+$ git log                                     # use q to quit log
+# copy the sequel number of an earlier commit
+$ git checkout 21187d55edda54f010defe         # can also find the sequel number from github
+$ git checkout -                              # go back to the latest commit
+
+## opens a new branch for testing
+$ git checkout -b try_branch
+$ git branch                              # view all the branches
+# make changes in the local repo under the new branch
+$ git status
+$ git add -u
+$ git commit -m "delete test files"
+$ git status
+
+## merge the branch with master
+$ git checkout master                    # first go to the master branch
+$ git branch
+$ git merge try_branch                   
+# will merge the two branches, here updates the master branch with the changes in try_branch if there are no conflicts
+$ git push origin master                 # push changes to remote
+
+
+
+
+
+
+
+
+
+
+
+
 

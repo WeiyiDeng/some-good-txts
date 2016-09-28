@@ -345,7 +345,7 @@ $ nosetests -v mysqrtw.py
 # new => python2
 >>> %pylab inline                         # shift + enter to run the line
 
-# w: was previous on the /usr/local/bin dir
+# w: was previously on the /usr/local/bin dir
 # jupyter notebook automatically creates ipynb file in working directory
 $ cp /usr/local/bin/lecture5A.ipynb /home/uwhpsc/wdocs/lecture5
 $ cd ~/wdocs/lecture5                     # set preferred working dir
@@ -372,6 +372,17 @@ $ cd Downloads
 $ scite lec6.py                           # lec6.py is downloaded py version of lec6.ipynb
 $ firefox ~/Downloads/lec6.html
 
+# compute run time of ipython
+>>> time sqrt(2.)
+>>> timeit sqrt(2.)
+>>> timeit mysqrtw.wsqrt(2.)
+>>> %%timeit        # send everything in the cell to timeit
+y = zeros(1000)
+for i in range(1000):         # if use loops have to interpret, cannot use compiled functions
+    y[i]=sqrt(i)              # much slower
+
+
+
 
 ### array and matrix manipulation in ipython
 ### see W2-L6.1 slide for clearer comments/explanations
@@ -384,7 +395,7 @@ x+3
 y = [1,2]
 y+y
 y+3                          # gives error
-np.sqrt(x) * np.cos(x) * x**3
+np.sqrt(x) * np.cos(x) * x**3           # opposite to matlab, here * means element-wise multiplication
 np.array([1,2,3.])
 A = np.array([[1.,2], [3,4], [5,6]])
 A
@@ -419,24 +430,50 @@ z
 np.rank(z)
 A = np.array([[1.,2],[3,4]])
 A
-b = np.dot(A,np.array([8.,9.]))
+b = np.dot(A,np.array([8.,9.]))      # opposiite to matlab, here dot means matrix multiplication
 b
 from numpy.linalg import solve
 solve(A,b)
 from numpy.linalg import eig
 eig(A)
-eval, evec = eig(A)
+eval, evec = eig(A)                   # separate the outputs in two parts
 eval
 evec
 from scipy.integrate import quad
 def f(x):
     return x**2
 f(2)
-quad(f,0.,2.)
+quad(f,0.,2.)                         # call a function within a function
 val,error_est = quad(f,0.,2.)
 val
 error_est
-f = lambda x:x**2
+f = lambda x:x**2                      # lambda function
 f(4)
-quad(lambda x: x**2,0.,2.)
+quad(lambda x: x**2,0.,2.)             # similar as fuction handle in matlab
 history
+
+
+
+### lec 7
+# under ipython pylab run debugtry.py
+>>> run debugtry
+
+# run debugpdf
+>>> run debugpdb
+
+# opens pdb debugger
+(pdb) list                          # list the context of the line (nearby lines)
+(pdb) p x                           # print current value of x
+(pdb) p y
+(pdb) p z
+(pdb) up                            # goes up one level, where the func ff is called
+(pdb) p x
+(pdb) down                          # goes down one level
+(pdb) n                             # move to the next line
+(pdb) help                          # see all cammands in pdb
+(pdb) c                             # exits pdb and resumes excutation in ipython
+
+# in ipython can just type pdb to open the debugger
+# when python raises an exception (error), enter pdb debug mode automatically
+# to turn off the debugger, enter pdb again in ipython command line
+ 
