@@ -1,6 +1,9 @@
 # w: see https://github.com/coursera-dl/coursera-dl
 
 # w: from cmd navigate to d:\Python34>
+# w: on desktop pc:
+C:\Users\61979wde>cd "D:\Program Files (x86)\Python35-32"
+
 
 # w: Or add Python to path environment variable and call python from cmd by just typing python in the cmd shell
 # w: change path variable: control panel -> system -> advanced system settings -> environment variables -> edit 'path' under system variables
