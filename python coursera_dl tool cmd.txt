@@ -2,8 +2,9 @@
 
 # w: from cmd navigate to d:\Python34>
 # w: on desktop pc:
-C:\Users\61979wde>cd "D:\Program Files (x86)\Python35-32"
-
+C:\Users\61979wde>cd "D:\Python35"
+C:\Users\61979wde>d:
+D:\Python35>
 
 # w: Or add Python to path environment variable and call python from cmd by just typing python in the cmd shell
 # w: change path variable: control panel -> system -> advanced system settings -> environment variables -> edit 'path' under system variables
@@ -17,3 +18,6 @@ d:\Python34\Scripts> coursera-dl -u weiyiwdeng@gmail.com -p aptx4869 interactive
 d:\Python34\Scripts> coursera-dl -u weiyiwdeng@gmail.com -p aptx4869 interactive-python-2
 
 # w: next time just need to nevigate to d:\Python34\Scripts and call coursera-dl
+
+# w: to download multiple courses at a row use & as separator between two commands 
+coursera-dl -u weiyiwdeng@gmail.com -p aptx4869 reproducible-research & coursera-dl -u weiyiwdeng@gmail.com -p aptx4869 data-cleaning
