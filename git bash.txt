@@ -81,6 +81,8 @@ touch .gitignore                                   # create a text file for igno
 *                                                         # blacklist everything
 !*.R
 !*.sql                                                   # except files in R and sql formats will be tracked
+!.gitignore
+!*/                                 # add this line to tell git not to ignore sub directories !!
 
 git status                                             
 git add --all
