@@ -128,7 +128,15 @@ $ git merge try_branch
 # will merge the two branches, here updates the master branch with the changes in try_branch if there are no conflicts
 $ git push origin master                 # push changes to remote
 
-
+## to update from another computer without pulling the repo from git first
+# first do git remote add URLaddress
+# create a new branch try_merge
+$ git push origin try_merge
+# pull the latest version of repo from remote allowing unrelated histories
+$ git pull origin master --allow-unrelated-histories
+# push the new branch to git remote
+$ git push origin try_merge
+# then merge the two branches and push to remote
 
 
 
